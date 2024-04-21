@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | EasyDrive Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="./signup.css">
+   <style>
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="./" class="navbar-brand"><i class="fas fa-car"></i> EasyDrive Rentals</a>
+        <a href="./" class="navbar-link"><i class="fas fa-home"></i>Home</a> <!-- Home button -->
+        <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
+        <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+        <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In</a>
+    </nav>
+
+   
+    <div class="form-container">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST" class="signup-form">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" placeholder='Ram' id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="document">Select A Proof Of Document </label>
+
+                <select name="document" id="doc">
+                    <option value="">Document</option>
+                    <option value="Aadhar">Aadhar</option>
+                    <option value="Pan Card">Pan Card</option>
+                    <option value="DL">DL</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="documentNumberField" style="display: none;">
+                <label for="documentNumber">Document Number</label>
+                <input type="text" placeholder="Enter document number" id="documentNumber" name="documentNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <p class="text-center">Already have an account? <a href="/login" class="redirect-link">Login</a></p>
+    </div>
+    <script>
+        document.getElementById('doc').addEventListener('change', function () {
+            var selectedDocument = this.value;
+            var documentNumberField = document.getElementById('documentNumberField');
+
+            if (selectedDocument !== 'Document') {
+                documentNumberField.style.display = 'block';
+                document.querySelector('#documentNumberField label').innerText = 'Enter the document number of ' + selectedDocument;
+            } else {
+                documentNumberField.style.display = 'none';
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

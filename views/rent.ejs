@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDrive Rentals - Vehicle Rental</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="./Rent.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="./" class="navbar-brand"><i class="fas fa-car"></i> EasyDrive Rentals</a>
+        <a href="./" class="navbar-link"><i class="fas fa-home"></i>Home</a> <!-- Home button -->
+        <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
+        <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+        <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="service-container">
+                    <div class="service-details">
+                        <h2>Vehicle Rental</h2>
+                        <p>Rent a vehicle from EasyDrive Rentals for your travel needs. Explore our range of vehicles
+                            available for rent and enjoy a hassle-free experience.</p>
+                        <p>Choose the vehicle that suits your requirements and start your journey today!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-container">
+                    <button class="btn btn-primary btn-vehicle" onclick="showVehicleOptions()">Rent A Vehicle</button>
+                    <div id="vehicleOptions" style="display: none;">
+                        <p>Choose the type of vehicle you want to rent:</p>
+                        <button class="btn btn-outline-primary mr-2" onclick="selectVehicle('Car')">Car</button>
+                        <button class="btn btn-outline-primary mr-2" onclick="selectVehicle('Bike')">Bike</button>
+                        <button class="btn btn-outline-primary" onclick="selectVehicle('Other')">Other</button>
+                    </div>
+                    <button id="btnNext" class="btn btn-primary btn-next" onclick="showNextStep()"
+                        disabled>Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showVehicleOptions() {
+            document.getElementById('vehicleOptions').style.display = 'block';
+        }
+
+        function selectVehicle(type) {
+
+            document.querySelector('.btn-vehicle').innerText = 'Vehicle Selected: ' + type;
+            document.getElementById('btnNext').style.display = 'inline-block';
+            document.getElementById('btnNext').removeAttribute('disabled');
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

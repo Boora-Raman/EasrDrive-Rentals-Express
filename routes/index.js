@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Registration = require('../models/signupModels');
-const VehicleRegistration = require('../models/RegisterVehicle');
+const VehicleRegistration = require('../models/signupModels');
 
 router.get("/", (req, res) => {
     const loggedIn = req.session.loggedIn;

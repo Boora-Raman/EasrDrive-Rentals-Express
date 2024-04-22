@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EasyDrive Rentals </title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-        <link rel="stylesheet" href="./index.css">
-    </head>
-
-    <body>
-        <nav class="navbar">
-            <a href="./" class="navbar-brand"><i class="fas fa-car"></i> EasyDrive Rentals</a>
-            <a href="./" class="navbar-link"><i class="fas fa-home"></i>Home</a> <!-- Home button -->
-            <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
-            <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDrive Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="./" class="navbar-brand"><i class="fas fa-car"></i> EasyDrive Rentals</a>
+        <a href="./" class="navbar-link"><i class="fas fa-home"></i> Home</a>
+        <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
+        <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+        <% if (loggedIn) { %>
+            <a class="navbar-link" href="./logout"><i class="fas fa-user"></i> Log Out</a>
+        <% } else { %>
             <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In</a>
-        </nav>
-            
-           <section class="carousel-container">
+        <% } %>
+    </nav>
+    <section class="grid-container">
+        <section class="carousel-container">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./images/parked11.png" class="d-block w-100" alt="Carousel Image 1">
@@ -45,8 +43,7 @@
 
         <section class="details">
             <p>Welcome to EasyDrive Rentals!</p>
-            <p>EasyDrive Rentals is your ultimate destination for hassle-free transportation. We've redefined the car rental experience to ensure that every
-                            journey is convenient, affordable, and stress-free.</p>
+            <p>EasyDrive Rentals is your ultimate destination for hassle-free transportation. We've redefined the car rental experience to ensure that every journey is convenient, affordable, and stress-free.</p>
             <p>Forget about the paperwork and long waits. With EasyDrive Rentals, booking your ride is as simple as a few clicks. Our user-friendly platform allows you to browse, select, and secure your vehicle in minutes, leaving you more time to focus on your adventure.</p>
             <p>Our diverse fleet caters to every need and preference. Whether you're navigating city streets or embarking on a family adventure, our well-maintained vehicles ensure a comfortable and safe journey every time.</p>
             <p>Join us today and experience the freedom and flexibility. Whether you're planning your next adventure or looking to capitalize on your vehicle's earning potential, we're here to make transportation simple and stress-free.</p>
@@ -59,12 +56,11 @@
 
         <section class="services">
             <div class="service-item">
-                <h 1>Earn with Your Vehicle</h1>
+                <h1>Earn with Your Vehicle</h1>
                 <h2>Vehicle Registration</h2>
                 <p>Unlock the potential of your vehicle by registering it with EasyDrive Rentals. Earn passive income by renting it out to our community of users.</p>
                 <p>Our registration process is simple and hassle-free. Get started now and turn your vehicle into a lucrative asset!</p>
                 <a class="navbar-link btn btn-primary" href="./Register.html"><i class="fas fa-pen"></i> Register A Vehicle</a>
-            
             </div>
             <div class="service-item">
                 <h1>Rent A Vehicle</h1>
@@ -74,24 +70,24 @@
                 <a class="navbar-link btn btn-primary" href="./Rent.html"><i class="fas fa-suitcase"></i> Register A Vehicle</a>
             </div>
         </section>
+    </section>
 
-        <footer>
-            <p>&copy; 2024 EasyDrive Rentals. All rights reserved. |
-                <a href="#" class="footer-link">Privacy Policy</a>
-                |
-                <a href="#" class="footer-link">Terms of Service</a>
-            </p>
-        </footer>
+    <footer>
+        <p>&copy; 2024 EasyDrive Rentals. All rights reserved. |
+            <a href="#" class="footer-link">Privacy Policy</a>
+            |
+            <a href="#" class="footer-link">Terms of Service</a>
+        </p>
+    </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () { 
-                                $('.carousel').carousel({
-                    interval: 1000 
-                });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 1000
             });
-        </script>
-    </body>
-
+        });
+    </script>
+</body>
 </html>

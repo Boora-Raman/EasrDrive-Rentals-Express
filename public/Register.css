@@ -1,71 +1,105 @@
-*
-    {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-          font-family: Arial, sans-serif;
-          background-color: #f8f9fa;
-          color: #333;
-          padding-top: 50px;
-      }
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      .container
-      {
-        margin-top: 15px;
-      }
-      .service-container {
-          background-color: #fff;
-          padding: 30px;
-          border-radius: 8px;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      }
-      .service-details {
-          text-align: center;
-      }
+body {
+  font-family: Arial, sans-serif;
+}
 
+/* Navbar styles */
+.navbar {
+  /* height: 132px; */
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 0;
+}
 
-    .navbar .fas {
-        margin-right: 5px;
-        font-size: 20px;
-    }
-    .navbar {
-    background-color: #007bff;
-    padding: 10px 20px;
-    color: #fff;
-    }
-    
-    .navbar-brand {
-    font-size: 24px;
-    margin-right: auto;
-    color: #fff;
-    text-decoration: none;
-    }
-    
-    .navbar-brand:hover {
-    color: #fff;
-    text-decoration: none;
-    }
-    
-    .navbar a.navbar-link {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 20px;
-    font-weight: bold;
-    }
-    
-    .navbar a.navbar-link:hover {
-    color: #f8f9fa;
-    text-decoration: none;
-    }
-    
-    .navbar .bi {
-    margin-right: 5px;
-    font-size: 20px;
-    }
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-     .registration-form {
-        display: none;
-        margin-top: 40px;
-    }   
+.navbar-brand {
+  font-size: 24px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+/* Service details styles */
+.container {
+  margin-top: 4px;
+}
+
+.service-details {
+  margin-top: 25px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.service-details h2 {
+  margin-bottom: 20px;
+}
+
+.btn-vehicle {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-vehicle:hover {
+  background-color: #0056b3;
+}
+
+/* Registration form styles */
+.registration-form {
+  display: none;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.registration-form h3 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}

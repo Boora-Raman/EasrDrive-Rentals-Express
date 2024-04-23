@@ -9,7 +9,6 @@ const vehicleRegisterSchema = new mongoose.Schema({
     location: String,
     phoneNumber: String,
     cost: Number,
-    // Add other fields as needed
 });
 
 const VehicleRegister = mongoose.model('VehicleRegister', vehicleRegisterSchema);

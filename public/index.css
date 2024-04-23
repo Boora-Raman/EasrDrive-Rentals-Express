@@ -57,9 +57,9 @@ body {
 }
 
 .carousel-item img {
+    object-fit: fill;
     width: 90%;
-    height: 520px;
-
+    height: 560px;
 }
 
 .details {

@@ -15,11 +15,14 @@
         <a href="./" class="navbar-link"><i class="fas fa-home"></i> Home</a>
         <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
         <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+    
         <% if (loggedIn) { %>
-            <a class="navbar-link" href="./logout"><i class="fas fa-user"></i> Log Out</a>
+            <a class="navbar-link" href="./dashboard"><i class="fas fa-user"></i> <%= username %></a>
         <% } else { %>
-            <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In</a>
+            <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In </a>
         <% } %>
+        
+
     </nav>
     <section class="grid-container">
         <section class="carousel-container">
@@ -60,14 +63,14 @@
                 <h2>Vehicle Registration</h2>
                 <p>Unlock the potential of your vehicle by registering it with EasyDrive Rentals. Earn passive income by renting it out to our community of users.</p>
                 <p>Our registration process is simple and hassle-free. Get started now and turn your vehicle into a lucrative asset!</p>
-                <a class="navbar-link btn btn-primary" href="./Register.html"><i class="fas fa-pen"></i> Register A Vehicle</a>
+                <a class="navbar-link btn btn-primary" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
             </div>
             <div class="service-item">
                 <h1>Rent A Vehicle</h1>
                 <h2>Explore Our Fleet</h2>
                 <p>Discover the convenience of renting a vehicle from EasyDrive Rentals. Enjoy a seamless experience with our diverse and reliable fleet of vehicles.</p>
                 <p>Choose from a variety of vehicles tailored to your needs. Whether it's a compact car for city exploration or a spacious SUV for a family road trip, we've got the perfect ride for you. Book now!</p>
-                <a class="navbar-link btn btn-primary" href="./Rent.html"><i class="fas fa-suitcase"></i> Register A Vehicle</a>
+                <a class="navbar-link btn btn-primary" href="./rent"><i class="fas fa-suitcase"></i> Register A Vehicle</a>
             </div>
         </section>
     </section>

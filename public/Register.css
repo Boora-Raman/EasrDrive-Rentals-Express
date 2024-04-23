@@ -11,7 +11,7 @@ body {
 
 /* Navbar styles */
 .navbar {
-  /* height: 132px; */
+
   background-color: #007bff;
   color: #fff;
   padding: 10px 0;
@@ -92,6 +92,7 @@ body {
 }
 
 .btn-primary {
+  margin-top: 15px;
   background-color: #007bff;
   color: #fff;
   border: none;

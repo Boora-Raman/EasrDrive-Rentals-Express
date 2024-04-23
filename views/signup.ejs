@@ -24,58 +24,36 @@
    
     <div class="form-container">
         <h1>Sign Up</h1>
+
         <form action="/signup" method="POST" class="signup-form">
-
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" placeholder='Ram' id="name" name="name" required>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
             </div>
-
-            <div class="form-group">
-                <label for="document">Select A Proof Of Document </label>
-
-                <select name="document" id="doc">
-                    <option value="">Document</option>
-                    <option value="Aadhar">Aadhar</option>
-                    <option value="Pan Card">Pan Card</option>
-                    <option value="DL">DL</option>
-                </select>
-            </div>
-
-            <div class="form-group" id="documentNumberField" style="display: none;">
-                <label for="documentNumber">Document Number</label>
-                <input type="text" placeholder="Enter document number" id="documentNumber" name="documentNumber">
-            </div>
-
+        
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter a username" required>
             </div>
+        
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
             </div>
+        
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter a password" required>
             </div>
+        
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
+        
+
         <p class="text-center">Already have an account? <a href="/login" class="redirect-link">Login</a></p>
     </div>
     <script>
-        document.getElementById('doc').addEventListener('change', function () {
-            var selectedDocument = this.value;
-            var documentNumberField = document.getElementById('documentNumberField');
-
-            if (selectedDocument !== 'Document') {
-                documentNumberField.style.display = 'block';
-                document.querySelector('#documentNumberField label').innerText = 'Enter the document number of ' + selectedDocument;
-            } else {
-                documentNumberField.style.display = 'none';
-            }
-        });
-
+    
     </script>
 
 </body>

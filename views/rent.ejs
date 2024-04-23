@@ -21,10 +21,12 @@
         <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
         <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
         <% if (loggedIn) { %>
-            <a class="navbar-link" href="./logout"><i class="fas fa-user"></i> Log Out</a>
+            <a class="navbar-link" href="./dashboard"><i class="fas fa-user"></i> <%= username %></a>
         <% } else { %>
-            <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In</a>
-        <% } %></nav>
+            <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In </a>
+        <% } %>
+
+    </nav>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -33,7 +35,7 @@
                         <h2>Vehicle Rental</h2>
                         <p>Rent a vehicle from EasyDrive Rentals for your travel needs. Explore our range of vehicles
                             available for rent and enjoy a hassle-free experience.</p>
-                        <p>Choose the vehicle that suits your requirements and start your journey today!</p>
+                        <p>Choose the vehicle type and location that suits your requirements and start your journey today!</p>
                     </div>
                 </div>
             </div>
@@ -42,31 +44,47 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="btn-container">
-                    <button class="btn btn-primary btn-vehicle" onclick="showVehicleOptions()">Rent A Vehicle</button>
-                    <div id="vehicleOptions" style="display: none;">
-                        <p>Choose the type of vehicle you want to rent:</p>
-                        <button class="btn btn-outline-primary mr-2" onclick="selectVehicle('Car')">Car</button>
-                        <button class="btn btn-outline-primary mr-2" onclick="selectVehicle('Bike')">Bike</button>
-                        <button class="btn btn-outline-primary" onclick="selectVehicle('Other')">Other</button>
+                    <button class="btn btn-primary btn-vehicle" onclick="showRentForm()">Rent A Vehicle</button>
+                    <div id="rentForm" style="display: none;">
+                        <div id="vehicleOptions">
+                            <p>Choose the type of vehicle you want to rent:</p>
+                            <button class="btn btn-outline-primary mr-2" onclick="selectVehicle('Car')">Car</button>
+                            <button class="btn btn-outline-primary mr-2" onclick="selectVehicle('Bike')">Bike</button>
+                            <button class="btn btn-outline-primary" onclick="selectVehicle('Other')">Other</button>
+                        </div>
+                        <input type="text" id="location" placeholder="Enter location">
+                        <button id="btnNext" class="btn btn-primary btn-next" onclick="rentVehicle()"
+                            disabled>Next</button>
                     </div>
-                    <button id="btnNext" class="btn btn-primary btn-next" onclick="showNextStep()"
-                        disabled>Next</button>
                 </div>
             </div>
         </div>
+        
+
     </div>
 
     <script>
-        function showVehicleOptions() {
-            document.getElementById('vehicleOptions').style.display = 'block';
-        }
+     
+     function showRentForm() {
+    document.getElementById('rentForm').style.display = 'block';
+}
 
-        function selectVehicle(type) {
+function selectVehicle(type) {
+    document.querySelector('.btn-vehicle').innerText = 'Vehicle Selected: ' + type;
+    document.getElementById('btnNext').style.display = 'inline-block';
+    document.getElementById('btnNext').removeAttribute('disabled');
+}
 
-            document.querySelector('.btn-vehicle').innerText = 'Vehicle Selected: ' + type;
-            document.getElementById('btnNext').style.display = 'inline-block';
-            document.getElementById('btnNext').removeAttribute('disabled');
-        }
+function rentVehicle() {
+    // Get the selected vehicle type
+    const vehicleType = document.querySelector('.btn-vehicle').innerText.split(': ')[1];
+
+    // Get the entered location
+    const location = document.getElementById('location').value;
+
+    // Redirect to the route with the selected vehicle type and location
+    window.location.href = `/rent?vehicleType=${vehicleType}&location=${location}`;
+}
 
     </script>
 

@@ -1,46 +1,66 @@
 const express = require('express');
 const router = express.Router();
 const Registration = require('../models/signupModels');
-const VehicleRegistration = require('../models/signupModels');
 
-router.get("/", (req, res) => {
-    const loggedIn = req.session.loggedIn;
-    let message = '';
-    if (loggedIn) {
-        message = 'Logged in successfully!';
-    } else {
-        message = 'You are logged out.';
+
+router.get("/", async (req, res) => {
+    try {
+        const loggedIn = req.session.loggedIn;
+        let message = '';
+
+        if (loggedIn) {
+            message = 'Logged in successfully!';
+            const user = req.session.user; // Retrieve user information from session
+            const username = user.username; // Assuming 'username' is a field in your user model
+            res.render('index', { loggedIn, username, message });
+        } else {
+            message = 'You are logged out.';
+            res.render('index', { loggedIn, username: 'Log in', message });
+        }
+
+        req.session.message = ""; // Clear the message after displaying it
+    } catch (error) {
+        console.error('Error rendering home page:', error.message);
+        res.status(500).send('Internal Server Error: ' + error.message); // Send error message to client
     }
-    req.session.message = ""; // Clear the message after displaying it
-    res.render('index', { loggedIn, message });
 });
 
-router.get("/login", (req, res) => {
-    res.render('login');
-});
+
 
 router.get("/rent", (req, res) => {
     const loggedIn = req.session.loggedIn;
     let message = '';
     if (loggedIn) {
-        message = 'Logged in successfully!';
+
+        const user = req.session.user; // Retrieve user information from session
+        const username = user.username; // Assuming 'username' is a field in your user model
+        res.render('rent', { loggedIn, username, message });
+        // res.render('rent', { loggedIn, message });
+
     } else {
         message = 'You are logged out.';
+     res.render('rent', { loggedIn, message });
+
     }
     req.session.message = ""; // Clear the message after displaying it
-    res.render('rent', { loggedIn, message });
 });
 
 router.get("/register", (req, res) => {
+
     const loggedIn = req.session.loggedIn;
     let message = '';
     if (loggedIn) {
-        message = 'Logged in successfully!';
+   
+        const user = req.session.user; // Retrieve user information from session
+        const username = user.username; // Assuming 'username' is a field in your user model
+        // res.render('register', { loggedIn, username, message });
+        req.session.message = ""; // Clear the message after displaying it
+        res.render('register', { loggedIn, username, message });
+
     } else {
+        res.redirect('./')
         message = 'You are logged out.';
     }
-    req.session.message = ""; // Clear the message after displaying it
-    res.render('register', { loggedIn, message });
 });
 
 router.get("/signup", (req, res) => {
@@ -79,6 +99,7 @@ router.post("/login", async (req, res) => {
         }
 
         req.session.loggedIn = true;
+        req.session.user = user; // Store user information in session
         res.redirect('/');
     } catch (error) {
         console.error('Error during login:', error.message);
@@ -86,10 +107,25 @@ router.post("/login", async (req, res) => {
     }
 });
 
+
 router.get('/logout', (req, res) => {
     req.session.loggedIn = false;
     req.session.message = "Logged out successfully!";
     res.redirect('/');
+});
+
+router.get('/login', (req, res) => {
+    // req.session.loggedIn = false;
+    // req.session.message = "Logged out successfully!";
+    // res.redirect('/');
+    res.render('login')
+});
+
+router.get('/signup', (req, res) => {
+    // req.session.loggedIn = false;
+    // req.session.message = "Logged out successfully!";
+    // res.redirect('/');
+    res.render('signup')
 });
 
 module.exports = router;

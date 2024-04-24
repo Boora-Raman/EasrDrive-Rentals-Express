@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const vehicleRegisterSchema = new mongoose.Schema({
     vehicleMake: String,
     vehicleModel: String,
-    registrationNumber: { type: String, unique: true },
+    registrationNumber: String,
+    vehicleImage: String,
+    vehicleType: String, // Add vehicle type field
     userName: String,
-    userEmail: { type: String, unique: true },
+    userEmail: String,
     location: String,
     phoneNumber: String,
-    cost: Number,
+    cost: Number
 });
 
 const VehicleRegister = mongoose.model('VehicleRegister', vehicleRegisterSchema);

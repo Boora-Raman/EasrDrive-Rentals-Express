@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const path = require('path');
-const routes = require('./routes');
-const vehicleRoutes = require('./routes/vehicleRoutes');
+const routes = require('./routes'); // Assuming routes file is in the same directory
 
 const app = express();
 
@@ -19,21 +19,14 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Mongoose connection
-mongoose.connect('mongodb+srv://booraraman2004:ramanBoora@cluster0.xaz6fpx.mongodb.net/MongoDbData', {
+mongoose.connect('mongodb+srv://booraraman2004:ramanBoora@cluster0.xaz6fpx.mongodb.net/RentalData', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch((err) => {
-    console.error('Error connecting to MongoDB:', err.message);
-});
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(error => console.error('Error connecting to MongoDB:', error));
 
-// Use routes
 app.use('/', routes);
-app.use('/', vehicleRoutes);
 
-const port = process.env.PORT || 4500;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+const PORT = process.env.PORT || 5600;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

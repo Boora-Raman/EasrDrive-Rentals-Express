@@ -47,7 +47,7 @@
             <div class="registration-form" id="registrationForm">
                 <h3>Vehicle Registration Form</h3>
              
-                <form action="/registervehicle" method="POST" enctype="multipart/form-data">
+                <form action="/register" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="vehicleMake">Vehicle Make:</label>
                         <input type="text" class="form-control" id="vehicleMake" name="vehicleMake" placeholder="Enter vehicle make" required>
@@ -55,6 +55,10 @@
                     <div class="form-group">
                         <label for="vehicleModel">Vehicle Model:</label>
                         <input type="text" class="form-control" id="vehicleModel" name="vehicleModel" placeholder="Enter vehicle model" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleType">Vehicle Type:</label>
+                        <input type="text" class="form-control" id="vehicleType" name="vehicleType" placeholder="Enter vehicle type" required>
                     </div>
                     <div class="form-group">
                         <label for="registrationNumber">Registration Number:</label>

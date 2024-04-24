@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Vehicles</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vehicles.css"> <!-- Link to your CSS file -->
+    <style>
+        .vehicle-card {
+            display: flex;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .vehicle-image {
+            width: 30%;
+            float: left;
+            padding: 10px;
+        }
+
+        .vehicle-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .vehicle-details {
+            width: 70%;
+            float: left;
+            padding: 10px;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .navbar-links {
+            display: flex;
+        }
+
+        .navbar-link {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar-link:hover {
+            text-decoration: underline;
+        }
+
+        .filter {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="./"><i class="fas fa-car"></i> EasyDrive Rentals</a>
+        <div class="navbar-links">
+            <a href="./" class="navbar-link"><i class="fas fa-home"></i> Home</a>
+            <a class="navbar-link" href="./register"><i class="fas fa-pen"></i> Register A Vehicle</a>
+            <a class="navbar-link" href="./rent"><i class="fas fa-suitcase"></i> Rent A Vehicle</a>
+        
+            <% if (loggedIn) { %>
+                <a class="navbar-link" href="./dashboard"><i class="fas fa-user"></i> <%= username %></a>
+            <% } else { %>
+                <a class="navbar-link" href="./login"><i class="fas fa-user"></i> Log In </a>
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+<div class="filter">
+    <label for="vehicle-type">Filter by Vehicle Type:</label>
+    <select name="vehicle-type" id="vehicle-type">
+        <option value="all">All</option>
+        <option value="two-wheeler">Two Wheeler</option>
+        <option value="four-wheeler">Four Wheeler</option>
+    </select>
+</div>
+
+<div class="vehicle-container">
+    <% vehicles.forEach(vehicle => { %>
+    <div class="vehicle-card">
+        <div class="vehicle-image">
+            <img src="/assets/<%= vehicle.vehicleImage %>" alt="Vehicle Image">
+        </div>
+        <div class="vehicle-details">
+            <table>
+                <tr>
+                    <td><strong>Registration Number:</strong></td>
+                    <td><%= vehicle.registrationNumber %></td>
+                </tr>
+                <tr>
+                    <td><strong>Owner's Name:</strong></td>
+                    <td><%= vehicle.userName %></td>
+                </tr>
+                <tr>
+                    <td><strong>Owner's Email:</strong></td>
+                    <td><%= vehicle.userEmail %></td>
+                </tr>
+                <tr>
+                    <td><strong>Location:</strong></td>
+                    <td><%= vehicle.location %></td>
+                </tr>
+                <tr>
+                    <td><strong>Phone Number:</strong></td>
+                    <td><%= vehicle.phoneNumber %></td>
+                </tr>
+                <tr>
+                    <td><strong>Rental Cost (per day):</strong></td>
+                    <td><%= vehicle.cost %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <% }) %>
+</div>
+
+</body>
+</html>

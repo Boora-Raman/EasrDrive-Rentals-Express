@@ -68,19 +68,15 @@ router.get("/signup", (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-    const { name, document, documentNumber, username, email, password } = req.body;
+    const { name, username, email, password } = req.body;
     try {
         const existingUserByEmail = await Registration.findOne({ email: email });
-        const existingUserByDocNumber = await Registration.findOne({ documentNumber: documentNumber });
 
         if (existingUserByEmail) {
             return res.redirect('/signup?message=Email%20already%20exists');
         }
-        if (existingUserByDocNumber) {
-            return res.redirect('/signup?message=Account%20already%20created%20with%20this%20document%20number');
-        }
 
-        const newRegistration = new Registration({ name, document, documentNumber, username, email, password });
+        const newRegistration = new Registration({ name,  username, email, password });
         await newRegistration.save();
         res.redirect('/');
     } catch (err) {
